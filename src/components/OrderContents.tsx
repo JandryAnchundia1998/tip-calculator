@@ -1,13 +1,17 @@
 import React from "react";
 import { MenuItem, OrderItem } from "../types";
 import { formatCurrency } from "../helpers";
+import { OrderAction } from "../reducers/order-reducer";
 
 type OrderContentsProps = {
   order: OrderItem[];
-  removeItem: (id: MenuItem['id']) => void;
+  dispatch: React.Dispatch<OrderAction>
 };
 
-export default function ({ order, removeItem }: OrderContentsProps) {
+export default function ({ order, dispatch }: OrderContentsProps) {
+
+  console.log('auiiii', order);
+  
   return (
     <div>
       <h2 className="font-black text-4xl">Consumo</h2>
@@ -26,7 +30,7 @@ export default function ({ order, removeItem }: OrderContentsProps) {
                   {formatCurrency(item.price * item.quantity)}
                 </p>
               </div>
-              <button onClick={()=> removeItem(item.id)}  className="bg-red-600 h-9 px-3 rounded-lg font-bold">Eliminar</button>
+              <button onClick={()=> dispatch({type: "remove-item", payload: {itemId: item.id}})}  className="bg-red-600 h-9 px-3 rounded-lg font-bold">Eliminar</button>
             </div>
           ))}
      
