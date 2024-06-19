@@ -1,7 +1,7 @@
 import { formatCurrency } from "../helpers";
 import { OrderAction } from "../reducers/order-reducer";
 import { OrderItem } from "../types";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 type OrderTotalsProps = {
   order: OrderItem[];

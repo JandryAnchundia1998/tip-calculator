@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItem, OrderItem } from "../types";
+import { OrderItem } from "../types";
 import { formatCurrency } from "../helpers";
 import { OrderAction } from "../reducers/order-reducer";
 
